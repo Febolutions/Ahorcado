@@ -3,6 +3,7 @@ Para compilar en linux (es necesario GTK)
 desde la linea de comandos en este directorio
 
 gcc `pkg-config --cflags gtk+-3.0` -o what_words what_words.c `pkg-config --libs gtk+-3.0`
+
 ./what_words
 
 
