@@ -7,11 +7,15 @@ gcc `pkg-config --cflags gtk+-3.0` -o what_words what_words.c `pkg-config --libs
 ./what_words
 
 
-Por implementar
+Por implementar:
+
 Pantalla de inicio
->botones
->listener del teclado para salir
->descripcion corta de como jugar al juego
+
+botones
+listener del teclado para salir
+descripcion corta de como jugar al juego
+
 Pantalla del juego
->textboxes y textviews
->listener del teclado para introducir caracteres y opciones como salir
+
+textboxes y textviews
+listener del teclado para introducir caracteres y opciones como salir
