@@ -1,11 +1,9 @@
 #include <gtk/gtk.h>
 
 int main( int argc, char *argv[]){
-    GtkWidget *window;
-    GtkWidget *layout;
-    GtkWidget *image;
-    GtkWidget *button;
-
+    GtkWidget *window, *layout, *image, *button, *label, *entry, *view; 
+    GtkTextBuffer *buffer;
+    
     gtk_init(&argc, &argv);
 
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
@@ -16,20 +14,27 @@ int main( int argc, char *argv[]){
     gtk_container_add(GTK_CONTAINER (window), layout);
     gtk_widget_show(layout);
 
+    view= gtk_text_view_new ();
+    buffer= gtk_text_view_get_buffer (GTK_TEXT_VIEW (view));
+    gtk_text_buffer_set_text (buffer, "Texto de prueba", -1);
+    gtk_layout_put(GTK_LAYOUT(layout), view, 750, 650);
+    gtk_widget_set_size_request(view, 200, 35);
+
     image = gtk_image_new_from_file("../int_what_words.png");
     gtk_layout_put(GTK_LAYOUT(layout), image, 0, 0);
 
-    button = gtk_button_new_with_label("Button");
-    gtk_layout_put(GTK_LAYOUT(layout), button, 150, 50);
+    button = gtk_button_new_with_label("Comparar letra");
+    gtk_layout_put(GTK_LAYOUT(layout), button, 850, 650);
     gtk_widget_set_size_request(button, 80, 35);
 
-    g_signal_connect_swapped(G_OBJECT(window), "destroy",
-    G_CALLBACK(gtk_main_quit), NULL);
 
+    g_signal_connect_swapped(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
     gtk_widget_show_all(window);
-
     gtk_main();
 
     return 0;
 }
+
+
+
 
